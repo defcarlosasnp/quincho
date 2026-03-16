@@ -46,7 +46,7 @@ nav ul li a {
 #hero {
     height: 100vh;
     background: linear-gradient(rgba(27, 48, 34, 0.5), rgba(27, 48, 34, 0.4)), 
-                url('WhatsApp1.jpeg') no-repeat center center/cover;
+                url('fondo.jpg') no-repeat center center/cover;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
