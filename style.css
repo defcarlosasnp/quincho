@@ -1,7 +1,7 @@
 :root {
     --bg-light: #fdfaf4;
-    --forest: #1e3a2b;       /* Verde elegante para botones y fondos */
-    --gold: #d4af37;         /* Color dorado para acentos */
+    --forest: #1e3a2b;
+    --gold: #d4af37;
     --gold-dark: #b8972f;
     --white: #ffffff;
     --text-dark: #2a2a2a;
@@ -32,6 +32,7 @@ nav ul {
     gap: 35px;
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
@@ -79,9 +80,21 @@ nav ul li a {
     background: var(--gold-dark);
 }
 
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--forest);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#servicios {
+    padding: 100px 20px;
+    background: var(--bg-light);
+}
+
 .servicios-grid {
     display: grid;
-    /* Esto organiza automáticamente los servicios según el espacio disponible */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     max-width: 1200px;
@@ -96,6 +109,7 @@ nav ul li a {
     transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 15px 40px rgba(0,0,0,0.04);
     border: 1px solid rgba(0,0,0,0.02);
+    text-align: center;
 }
 
 .servicio-card:hover {
@@ -115,7 +129,11 @@ nav ul li a {
     color: var(--white);
     transform: rotateY(360deg);
 }
-#galeria { padding: 100px 0; background: #fff; }
+
+#galeria { 
+    padding: 100px 0; 
+    background: #fff; 
+}
 
 .galeria-item {
     height: 450px;
@@ -125,11 +143,15 @@ nav ul li a {
 }
 
 .galeria-item img {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
     transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.galeria-item:hover img { transform: scale(1.1); }
+.galeria-item:hover img { 
+    transform: scale(1.1); 
+}
 
 .map-container {
     max-width: 1000px;
@@ -140,46 +162,64 @@ nav ul li a {
     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
 }
 
-.map-container iframe { width: 100%; height: 100%; border: 0; }
+.map-container iframe { 
+    width: 100%; 
+    height: 100%; 
+    border: 0; 
+}
 
 #contacto {
-    padding: 120px 20px;
+    padding: 100px 20px;
     background: var(--grad-nature);
     color: white;
+    text-align: center;
 }
 
 .contacto-container {
-    max-width: 650px;
+    max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
-    padding: 60px;
-    border-radius: 40px;
-    border: 1px solid rgba(255,255,255,0.15);
+    padding: 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.input-group input, .input-group textarea {
+#contacto input, #contacto textarea {
     width: 100%;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.05);
     border: none;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-    padding: 18px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
     color: white;
-    margin-bottom: 35px;
-    font-size: 1.1rem;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+#contacto input::placeholder, #contacto textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 #contacto button {
     width: 100%;
     background: var(--gold);
     color: white;
-    padding: 20px;
+    padding: 18px;
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#contacto button:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
 }
 
 .wsp-float {
@@ -211,7 +251,8 @@ footer {
     text-align: center;
     padding: 4rem;
 }
-/* Forzar visibilidad del botón de cerrar */
+
+/* Lightbox Styles */
 .sl-wrapper .sl-close {
     display: block !important;
     font-family: Arial, sans-serif !important;
@@ -223,78 +264,39 @@ footer {
     text-decoration: none !important;
 }
 
-/* Fondo oscuro del lightbox para que resalte la imagen */
 .sl-overlay {
     background: rgba(0, 0, 0, 0.9) !important;
 }
 
-/* Estilo para las flechas de navegación también */
 .sl-wrapper .sl-navigation button {
     color: #ffffff !important;
 }
-#contacto {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #1e3a2b 0%, #345e45 100%);
-    color: white;
-    text-align: center;
-}
 
-.contacto-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    padding: 50px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#contacto input, #contacto textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 15px;
-    color: white;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-family: inherit;
-}
-
-#contacto input::placeholder, #contacto textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-#contacto button {
-    width: 100%;
-    background: #d4af37;
-    color: white;
-    padding: 18px;
-    border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-#contacto button:hover {
-    background: #b8972f;
-    transform: translateY(-2px);
-}
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+    header {
+        padding: 0.5rem 0;
+    }
+
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 5px 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.7rem;
+        letter-spacing: 0px;
+    }
+
     #hero {
         background-attachment: scroll !important;
         background-position: center center !important;
-        /* Esto asegura que la imagen se vea bien en pantallas verticales */
         height: 80vh; 
     }
 
-    /* Ajuste del Hero (Título principal) */
     .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem !important;
         padding: 0 15px;
     }
 
@@ -302,49 +304,38 @@ footer {
         font-size: 1.1rem;
     }
 
-    /* Ajuste de los títulos de secciones */
     h2 {
         font-size: 2.2rem !important;
     }
 
-    /* Ajuste de las tarjetas de servicios */
     .servicios-grid {
-        grid-template-columns: 1fr; /* Una tarjeta por fila en celular */
-        padding: 0 30px;
+        grid-template-columns: 1fr;
+        padding: 0 20px;
     }
 
     .servicio-card {
         padding: 30px 20px;
     }
 
-    /* Ajuste de la Galería */
     .galeria-item {
         height: 300px;
     }
 
-    /* Ajuste del Formulario de Contacto */
     .contacto-container {
         padding: 30px 20px;
-        margin: 0 15px;
+        margin: 0 10px;
     }
 
-    #contacto button {
-        padding: 15px;
-        font-size: 1rem;
+    .map-container {
+        height: 300px;
+        margin: 30px 10px;
     }
 
-    /* Ajuste del botón flotante de WhatsApp */
     .wsp-float {
         width: 60px;
         height: 60px;
         bottom: 20px;
         right: 20px;
         font-size: 30px;
-    }
-
-    /* Ajuste del Mapa */
-    .map-container {
-        height: 300px;
-        margin: 30px 15px;
     }
 }
