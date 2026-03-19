@@ -51,27 +51,27 @@
                     <h3>Piscina</h3>
                     <p>Relajo absoluto en un entorno campestre.</p>
                 </div>
-                <div class="servicio-card" data-aos="fade-up">
+                <div class="servicio-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box"><i class="fas fa-hot-tub"></i></div>
                     <h3>Tinaja</h3>
                     <p>Baño caliente bajo las estrellas.</p>
                 </div>
-                <div class="servicio-card" data-aos="fade-up">
+                <div class="servicio-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="icon-box"><i class="fas fa-spa"></i></div>
                     <h3>Sauna</h3>
                     <p>Bienestar y desconexión profunda.</p>
                 </div>
-                <div class="servicio-card" data-aos="fade-up">
+                <div class="servicio-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box"><i class="fas fa-fire-alt"></i></div>
                     <h3>ElrincondeManrico</h3>
                     <p>Equipado para los mejores asados.</p>
                 </div>
-                <div class="servicio-card" data-aos="fade-up">
+                <div class="servicio-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box"><i class="fas fa-tree"></i></div>
                     <h3>Áreas Verdes</h3>
                     <p>Extensos jardines naturales.</p>
                 </div>
-                <div class="servicio-card" data-aos="fade-up">
+                <div class="servicio-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="icon-box"><i class="fas fa-car"></i></div>
                     <h3>Privacidad</h3>
                     <p>Estacionamiento amplio y seguro.</p>
@@ -82,7 +82,7 @@
         <section id="paquetes">
             <h2 data-aos="fade-up">Paquetes Especiales</h2>
             <div class="paquetes-container">
-                <div class="paquete-card" data-aos="fade-up">
+                <div class="paquete-card" data-aos="fade-right">
                     <h3>Día de Campo</h3>
                     <div class="precio">$150.000 <span>/ día</span></div>
                     <ul>
@@ -94,7 +94,7 @@
                     <button class="btn-paquete" onclick="selectPackage('Día de Campo')">Elegir Plan</button>
                 </div>
 
-                <div class="paquete-card destacado" data-aos="fade-up" data-aos-delay="200">
+                <div class="paquete-card destacado" data-aos="fade-up" data-aos-delay="300">
                     <div class="paquete-tag">Recomendado Premium</div>
                     <h3>Fin de Semana Full</h3>
                     <div class="precio">$350.000 <span>/ total</span></div>
@@ -107,7 +107,7 @@
                     <button class="btn-paquete" onclick="selectPackage('Fin de Semana Full')">Elegir Plan</button>
                 </div>
 
-                <div class="paquete-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="paquete-card" data-aos="fade-left" data-aos-delay="600">
                     <h3>Evento Especial</h3>
                     <div class="precio">Consultar</div>
                     <ul>
@@ -145,7 +145,7 @@
             </div>
         </section>
 
-        <section id="ubicacion">
+        <section id="ubicacion" data-aos="fade-up">
             <h2>Ubicación</h2>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3319.4323616239124!2d-70.7303844!3d-33.7494534!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662e5917469a4c5%3A0x6a008b8b0e77d90a!2sCasona%20Los%20Jardines%208!5e0!3m2!1ses-419!2scl!4v1709500000000" allowfullscreen="" loading="lazy"></iframe>
@@ -173,7 +173,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.3/simple-lightbox.min.js"></script>
 
     <script>
-        AOS.init({ duration: 1200 });
+        // Configuración de AOS para que los efectos se sientan más fluidos
+        AOS.init({ 
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
         
         new Splide('#image-carousel', { 
             type: 'loop', 
