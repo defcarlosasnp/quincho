@@ -328,7 +328,18 @@ footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; 
     z-index: 10005 !important;
 }
 .sl-wrapper .sl-navigation button { color: #ffffff !important; z-index: 10005 !important; }
+/* Asegura que los elementos ocultos por AOS no causen scroll lateral */
+[data-aos] {
+    pointer-events: none;
+}
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
 
+/* Mejora la suavidad de las tarjetas al aparecer */
+.servicio-card, .paquete-card {
+    will-change: transform, opacity;
+}
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     header { padding: 10px 0; }
