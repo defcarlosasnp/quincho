@@ -1,5 +1,6 @@
 :root {
     --bg-light: #fdfaf4;
+    --bg-alt: #f7f3e9; /* Tono terroso suave para transiciones */
     --forest: #1e3a2b;
     --gold: #d4af37;
     --gold-dark: #b8972f;
@@ -82,7 +83,7 @@ nav ul li a {
     background: var(--gold-dark);
 }
 
-/* --- SECCIONES GENERALES --- */
+/* --- SECCIONES CON TRANSICIÓN DE AMBIENTE --- */
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
@@ -91,27 +92,46 @@ h2 {
     margin-bottom: 2rem;
 }
 
-#servicios, #paquetes, #galeria, #ubicacion {
+#servicios {
+    background: linear-gradient(to bottom, var(--bg-light), var(--bg-alt));
     padding: 100px 20px;
 }
 
-/* --- SERVICIOS --- */
-.servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+#paquetes {
+    background: linear-gradient(to bottom, var(--bg-alt), var(--white));
+    padding: 100px 20px;
+}
+
+#galeria {
+    background-color: var(--white);
+    padding: 100px 0;
+}
+
+#ubicacion {
+    background: linear-gradient(to bottom, var(--white), var(--bg-light));
+    padding: 100px 20px;
+}
+
+/* --- GRIDS Y CONTENEDORES --- */
+.servicios-grid, .paquetes-container {
+    display: flex;
+    justify-content: center;
     gap: 30px;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 60px auto 0;
 }
 
-.servicio-card {
+/* --- TARJETAS (Servicios y Paquetes) --- */
+.servicio-card, .paquete-card {
     background: var(--white);
-    padding: 50px 30px;
+    padding: 45px 30px;
     border-radius: 30px;
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 15px 40px rgba(0,0,0,0.04);
     border: 1px solid rgba(0,0,0,0.02);
     text-align: center;
+    will-change: transform, opacity;
 }
 
 .servicio-card:hover {
@@ -131,42 +151,21 @@ h2 {
     color: var(--white);
 }
 
-/* --- PAQUETES (Diseño Premium sugerido) --- */
-#paquetes {
-    background-color: var(--white);
-}
-
-.paquetes-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 50px auto 0;
-}
-
+/* --- PAQUETES PREMIUM --- */
 .paquete-card {
-    background: var(--bg-light);
-    padding: 40px 30px;
-    border-radius: 25px;
     width: 320px;
     position: relative;
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-    text-align: center;
 }
 
 .paquete-card:hover {
-    transform: translateY(-10px);
     border-color: var(--gold);
 }
 
 .paquete-card.destacado {
     border: 1px solid var(--gold);
     transform: scale(1.05);
-    background: var(--white);
     box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
     z-index: 1;
 }
@@ -225,8 +224,6 @@ h2 {
 }
 
 /* --- GALERÍA --- */
-#galeria { background: #fff; }
-
 .galeria-item {
     height: 450px;
     border-radius: 20px;
@@ -257,6 +254,7 @@ h2 {
 #contacto {
     background: var(--grad-nature);
     color: white;
+    text-align: center;
 }
 
 .contacto-container {
@@ -294,7 +292,7 @@ h2 {
     transition: 0.3s;
 }
 
-/* --- FOOTER Y OTROS --- */
+/* --- FOOTER Y WSP --- */
 .wsp-float {
     position: fixed;
     bottom: 40px; right: 40px;
@@ -315,7 +313,7 @@ h2 {
 
 footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; padding: 4rem; }
 
-/* LIGHTBOX */
+/* --- LIGHTBOX --- */
 .sl-wrapper { z-index: 9999 !important; }
 .sl-overlay { background: rgba(0, 0, 0, 0.95) !important; }
 .sl-wrapper .sl-close {
@@ -328,7 +326,8 @@ footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; 
     z-index: 10005 !important;
 }
 .sl-wrapper .sl-navigation button { color: #ffffff !important; z-index: 10005 !important; }
-/* Asegura que los elementos ocultos por AOS no causen scroll lateral */
+
+/* --- AOS CONFIG --- */
 [data-aos] {
     pointer-events: none;
 }
@@ -336,21 +335,6 @@ footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; 
     pointer-events: auto;
 }
 
-/* Mejora la suavidad de las tarjetas al aparecer */
-.servicio-card, .paquete-card {
-    will-change: transform, opacity;
-}
-[data-aos] {
-    pointer-events: none;
-}
-[data-aos].aos-animate {
-    pointer-events: auto;
-}
-
-/* Mejora la suavidad de las tarjetas al aparecer */
-.servicio-card, .paquete-card {
-    will-change: transform, opacity;
-}
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     header { padding: 10px 0; }
@@ -374,7 +358,7 @@ footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; 
     
     h2 { font-size: 1.8rem !important; }
     
-    .servicios-grid { grid-template-columns: 1fr; }
+    .servicios-grid { flex-direction: column; align-items: center; }
     
     .paquetes-container { gap: 40px; }
     
