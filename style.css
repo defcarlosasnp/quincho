@@ -4,7 +4,7 @@
     --forest: #1e3a2b;
     --gold: #d4af37;
     --gold-dark: #b8972f;
-    --gold-faded: rgba(212, 175, 55, 0.1); /* Dorado muy tenue para fondos */
+    --gold-tenue: rgba(212, 175, 55, 0.08); /* Dorado muy suave para texturas */
     --white: #ffffff;
     --text-dark: #2a2a2a;
     --grad-nature: linear-gradient(135deg, #1e3a2b 0%, #345e45 100%);
@@ -20,10 +20,46 @@ body {
     overflow-x: hidden;
 }
 
+/* Marco Decorativo Unificado (No se corta) */
+body::before,
+body::after {
+    content: '';
+    position: fixed; /* Fijo a la pantalla, no a la sección */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Detrás de todo */
+    pointer-events: none;
+    opacity: 0.15; /* Súper sutil */
+}
+
+/* Marco izquierdo dorados */
+body::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path fill="%23d4af37" d="M10,10 L10,190 M10,30 L20,30 M10,70 L20,70 M10,110 L20,110 M10,150 L20,150 L10,190"/></svg>');
+    background-position: left center;
+    background-repeat: repeat-y;
+    background-size: 20px auto;
+}
+
+/* Marco derecho dorados */
+body::after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path fill="%23d4af37" d="M90,10 L90,190 M90,30 L80,30 M90,70 L80,70 M90,110 L80,110 M90,150 L80,150 L90,190"/></svg>');
+    background-position: right center;
+    background-repeat: repeat-y;
+    background-size: 20px auto;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* Textura de fondo sutil para secciones */
+.bg-texture {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="2" cy="2" r="1" fill="%23d4af37" opacity="0.08"/></svg>');
+    background-repeat: repeat;
 }
 
 /* --- HEADER INTELIGENTE --- */
@@ -107,7 +143,7 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* --- SECCIONES Y DECORACIÓN LATERAL --- */
+/* --- SECCIONES --- */
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
@@ -122,46 +158,6 @@ h2 {
 #paquetes { padding: 100px 0; }
 #galeria { padding: 100px 0; }
 #ubicacion { padding: 100px 0; }
-
-/* Decoración Botánica en Laterales */
-.decorated-section {
-    position: relative;
-    overflow: hidden;
-}
-
-.decorated-section::before,
-.decorated-section::after {
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 600px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.15; /* Súper sutil */
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Ilustración izquierda */
-.decorated-section::before {
-    left: -100px;
-    top: 10%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path fill="%23d4af37" d="M30,10 C40,50 10,90 40,130 C20,150 50,180 30,195 Q60,160 50,120 C70,80 40,40 60,10 Z"/></svg>');
-}
-
-/* Ilustración derecha */
-.decorated-section::after {
-    right: -100px;
-    bottom: 10%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path fill="%23d4af37" d="M70,10 C60,50 90,90 60,130 C80,150 50,180 70,195 Q40,160 50,120 C30,80 60,40 40,10 Z"/></svg>');
-}
-
-/* Asegurar que el contenido esté sobre la decoración */
-.decorated-section .container,
-.decorated-section .container-fluid {
-    position: relative;
-    z-index: 1;
-}
 
 /* --- GRIDS Y TARJETAS --- */
 .servicios-grid, .paquetes-container {
@@ -229,7 +225,7 @@ h2 {
 .instagram-link { color: white; text-decoration: none; transition: 0.3s; }
 .instagram-link:hover { color: var(--gold); }
 
-#contacto input, #contacto textarea { width: 100%; background: rgba(255, 255, 255, 0.03); border: none; border-bottom: 2px solid rgba(255, 255, 255, 0.2); padding: 18px; color: white; margin-bottom: 25px; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
+#contacto input, #contacto textarea { width: 100%; background: rgba(255, 255, 255, 0.03); border: none; border-bottom: 2px solid rgba(255, 255, 255, 0.3); padding: 18px; color: white; margin-bottom: 25px; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
 #contacto input:focus, #contacto textarea:focus { outline: none; border-bottom-color: var(--gold); background: rgba(255, 255, 255, 0.06); }
 #contacto button { width: 100%; background: var(--gold); color: white; padding: 20px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1rem; }
 #contacto button:hover { background: var(--gold-dark); transform: translateY(-3px); }
@@ -249,7 +245,6 @@ footer { background: #0e1a14; color: rgba(255,255,255,0.8); text-align: center; 
 
 /* --- RESPONSIVE --- */
 @media (max-width: 992px) {
-    .decorated-section::before, .decorated-section::after { width: 150px; height: 300px; }
     h2 { font-size: 2.5rem; }
 }
 
